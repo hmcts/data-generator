@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.dataextractor;
+package uk.gov.hmcts.reform.datagenerator;
 
 import com.microsoft.azure.storage.CloudStorageAccount;
 import com.microsoft.azure.storage.StorageException;
@@ -18,7 +18,7 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.shaded.org.apache.commons.io.IOUtils;
-import uk.gov.hmcts.reform.dataextractor.utils.TestUtils;
+import uk.gov.hmcts.reform.datagenerator.utils.TestUtils;
 
 import java.io.BufferedOutputStream;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.dataextractor;
+package uk.gov.hmcts.reform.datagenerator;
 
 import com.ninja_squad.dbsetup.DbSetup;
 import com.ninja_squad.dbsetup.destination.DriverManagerDestination;
@@ -7,8 +7,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import uk.gov.hmcts.reform.dataextractor.utils.PostgresqlBinderConfiguration;
-import uk.gov.hmcts.reform.dataextractor.utils.TestUtils;
+import uk.gov.hmcts.reform.datagenerator.utils.PostgresqlBinderConfiguration;
+import uk.gov.hmcts.reform.datagenerator.utils.TestUtils;
 
 import static com.ninja_squad.dbsetup.Operations.insertInto;
 import static com.ninja_squad.dbsetup.Operations.sequenceOf;

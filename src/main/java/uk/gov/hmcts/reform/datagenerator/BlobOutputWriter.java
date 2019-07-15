@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.dataextractor;
+package uk.gov.hmcts.reform.datagenerator;
 
 import com.microsoft.azure.msiAuthTokenProvider.AzureMSICredentialException;
 import com.microsoft.azure.msiAuthTokenProvider.MSICredentials;

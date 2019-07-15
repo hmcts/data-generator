@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.dataextractor;
+package uk.gov.hmcts.reform.datagenerator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.dataextractor.utils;
+package uk.gov.hmcts.reform.datagenerator.utils;
 
 import com.ninja_squad.dbsetup.bind.Binder;
 import org.postgresql.util.PGobject;

@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.dataextractor;
+package uk.gov.hmcts.reform.datagenerator;
 
 public class WriterException extends RuntimeException {
 

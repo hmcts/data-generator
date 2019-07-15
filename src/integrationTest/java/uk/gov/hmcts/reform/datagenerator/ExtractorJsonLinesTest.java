@@ -1,8 +1,8 @@
-package uk.gov.hmcts.reform.dataextractor;
+package uk.gov.hmcts.reform.datagenerator;
 
 import org.junit.jupiter.api.Test;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import uk.gov.hmcts.reform.dataextractor.utils.TestUtils;
+import uk.gov.hmcts.reform.datagenerator.utils.TestUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.sql.Connection;

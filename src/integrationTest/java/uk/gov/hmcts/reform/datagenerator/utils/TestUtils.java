@@ -1,11 +1,11 @@
-package uk.gov.hmcts.reform.dataextractor.utils;
+package uk.gov.hmcts.reform.datagenerator.utils;
 
 import com.microsoft.azure.storage.StorageException;
 import com.microsoft.azure.storage.blob.CloudBlobContainer;
 import com.microsoft.azure.storage.blob.CloudBlockBlob;
 import com.microsoft.azure.storage.blob.ListBlobItem;
 import org.testcontainers.shaded.org.apache.commons.io.FileUtils;
-import uk.gov.hmcts.reform.dataextractor.DbTest;
+import uk.gov.hmcts.reform.datagenerator.DbTest;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.dataextractor;
+package uk.gov.hmcts.reform.datagenerator;
 
 import com.typesafe.config.ConfigFactory;
 import org.junit.jupiter.api.Test;
