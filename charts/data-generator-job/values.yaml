@@ -1,5 +1,5 @@
 job:
-  image: hmcts.azurecr.io/hmcts/data-extractor:latest
+  image: hmcts.azurecr.io/hmcts/data-generator:latest
   schedule: "0 2 * * *"
   memoryLimits: '2048Mi'
   cpuLimits: '2000m'

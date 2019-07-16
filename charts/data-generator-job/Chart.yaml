@@ -1,0 +1,6 @@
+name: data-generator-job
+home: https://github.com/hmcts/data-generator
+version: 0.0.5
+description: HMCTS data generator
+maintainers:
+  - name: HMCTS Platform engineering team

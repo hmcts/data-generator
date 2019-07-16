@@ -13,8 +13,8 @@ plugins {
 
 group 'uk.gov.hmcts.reform'
 version '1.0.0'
-archivesBaseName = 'data-extractor'
-mainClassName = 'uk.gov.hmcts.reform.dataextractor.DataExtractorApplication'
+archivesBaseName = 'data-generator'
+mainClassName = 'uk.gov.hmcts.reform.datagenerator.DataGeneratorApplication'
 
 
 sourceCompatibility = 11
@@ -87,10 +87,10 @@ jacocoTestReport {
 project.tasks['sonarqube'].dependsOn test, integration
 sonarqube {
   properties {
-    property "sonar.projectName", "data-extractor-job"
-    property "sonar.projectKey", "data-extractor-job"
+    property "sonar.projectName", "data-generator-job"
+    property "sonar.projectKey", "data-generator-job"
     property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/reports/jacoco/test/jacocoTestReport.xml"
-    property 'sonar.coverage.exclusions', "**/uk/gov/hmcts/reform/dataextractor/Extractor*.java,**/uk/gov/hmcts/reform/dataextractor/Query*.java,**/uk/gov/hmcts/reform/dataextractor/BlobOut*.java"
+    property 'sonar.coverage.exclusions', "**/uk/gov/hmcts/reform/datagenerator/Generator*.java,**/uk/gov/hmcts/reform/datagenerator/Query*.java,**/uk/gov/hmcts/reform/datagenerator/BlobOut*.java"
   }
 }
 
@@ -131,14 +131,14 @@ repositories {
 
 jar {
   manifest {
-    attributes 'Main-Class': 'uk.gov.hmcts.reform.dataextractor.DataExtractorApplication', 
+    attributes 'Main-Class': 'uk.gov.hmcts.reform.datagenerator.DataGeneratorApplication', 
       'Implementation-Title': project.name, 
       'Implementation-Version': project.version
   }
 }
 
 shadowJar {
-  baseName = 'data-extractor'
+  baseName = 'data-generator'
   classifier = null
   version = '1.0.0'
 }
@@ -196,7 +196,7 @@ dependencies {
   
 }
 
-mainClassName = 'uk.gov.hmcts.reform.dataextractor.DataExtractorApplication'
+mainClassName = 'uk.gov.hmcts.reform.datagenerator.DataGeneratorApplication'
 
 wrapper {
     distributionType = Wrapper.DistributionType.ALL
