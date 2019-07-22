@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.1.xsd">
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
 
   <suppress>
     <gav regex="true">^com\.google\.guava:guava:.*$</gav>
@@ -58,8 +58,8 @@
    file name: jackson-databind-2.9.9.jar
    ]]></notes>
     <packageUrl regex="true">^pkg:maven/com\.fasterxml\.jackson\.core/jackson-databind@.*$</packageUrl>
-    <cpe>cpe:/a:fasterxml:jackson</cpe>
+    <vulnerabilityName>CVE-2019-12814</vulnerabilityName>
   </suppress>
-  
+
 
 </suppressions>
