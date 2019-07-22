@@ -6,6 +6,8 @@ import com.typesafe.config.ConfigFactory;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.Duration;
+import java.time.LocalDateTime;
 
 
 @SuppressWarnings({"PMD", "checkstyle:hideutilityclassconstructor"})
@@ -17,7 +19,7 @@ public class DataGeneratorApplication {
         private final String etlDbUrl;
         final String etlDbUser;
         final String etlDbPassword;
-        private final String etlSql;
+        final Duration timeToRun;
 
         GeneratorConfig(String baseDir) {
             if (baseDir != null) {
@@ -37,7 +39,11 @@ public class DataGeneratorApplication {
             } else {
                 this.etlDbPassword = config.getString("etl-db-password");
             }
-            this.etlSql = config.getString("etl-sql");
+            if (config.hasPath("time-to-run")) {
+                this.timeToRun = config.getDuration("time-to-run");
+            } else {
+                this.timeToRun = Duration.ofMinutes(1);
+            }
         }
 
         GeneratorConfig() {
@@ -68,9 +74,15 @@ public class DataGeneratorApplication {
 
     public void run() {
         try (QueryExecutor executor = new QueryExecutor(
-                config.etlDbUrl, config.etlDbUser, config.etlDbPassword, config.etlSql)
+                config.etlDbUrl, config.etlDbUser, config.etlDbPassword)
             ) {
-            executor.execute();
+
+            LocalDateTime start = LocalDateTime.now();
+            LocalDateTime end = start.plus(config.timeToRun);
+            while (LocalDateTime.now().isBefore(end)) {
+                executor.execute("insert into case_data (created_date, last_modified, jurisdiction, case_type_id, state, locked_by_user_id, data, data_classification, reference, security_classification)\n" +
+                        "       values (?, ?, 'divorce', 'casetype', 'O', null, ?::jsonb, ?::jsonb, ?, 'Public');");
+            }
         }
     }
 

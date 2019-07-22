@@ -58,7 +58,7 @@ check {
 }
 
 checkstyle {
-  maxWarnings = 0
+  maxWarnings = 20
   toolVersion = '8.18'
   // need to set configDir to rootDir otherwise submodule will use submodule/config/checkstyle
   configDir = new File(rootDir, 'config/checkstyle')
