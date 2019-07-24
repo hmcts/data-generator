@@ -28,7 +28,7 @@ public class QueryExecutor implements AutoCloseable {
 
     @SuppressWarnings("squid:S2095")
     public boolean execute(String sql) {
-        boolean result;
+        boolean result = false;
         PreparedStatement statement = null;
         Random random = new Random();
         String caseData = "{\"caseType\": \"intestacy\", \"ihtFormId\": \"IHT123\", \"paperForm\": \"Yes\", \"willExists\": \"No\", \"caseMatches\": [], \"casePrinted\": \"Yes\", \"ihtNetValue\": \"5425245\", \"ihtGrossValue\": \"241254\", \"applicationType\": \"Personal\", \"dateOfDeathType\": \"diedOn\", \"deceasedAddress\": {\"County\": \"\", \"Country\": \"United Kingdom\", \"PostCode\": \"TS3 3TS\", \"PostTown\": \"London\", \"AddressLine1\": \"130 Test Road\", \"AddressLine2\": \"\", \"AddressLine3\": \"\"}, \"deceasedSurname\": \"TEST\", \"registryLocation\": \"London\", \"boSendToBulkPrint\": \"Yes\", \"deceasedForenames\": \"JOHN TEST\", \"extraCopiesOfGrant\": \"4\", \"boDocumentsUploaded\": [{\"id\": \"945bf0234-9d20-21da-04fa-123456789abc\", \"value\": {\"Comment\": \"Test doing his thing\", \"DocumentLink\": {\"document_url\": \"http://dm-store-perftest/documents/123412-1234-1234-123456789abc\", \"document_filename\": \"Mastering Test.pdf\", \"document_binary_url\": \"http://dm-store-perftest/documents/123412-1234-1234-123456789abc/binary\"}, \"DocumentType\": \"correspondence\"}}], \"deceasedDateOfBirth\": \"1912-10-17\", \"deceasedDateOfDeath\": \"2019-06-19\", \"otherExecutorExists\": \"No\", \"applyingAsAnAttorney\": \"No\", \"deceasedAnyOtherNames\": \"No\", \"ihtFormCompletedOnline\": \"No\", \"primaryApplicantAddress\": {\"County\": \"\", \"Country\": \"United Kingdom\", \"PostCode\": \"TN12 9TX\", \"PostTown\": \"Test\", \"AddressLine1\": \"123 Test Street\", \"AddressLine2\": \"\", \"AddressLine3\": \"Test\"}, \"primaryApplicantSurname\": \"TEST\", \"applicationSubmittedDate\": \"2019-07-10\", \"primaryApplicantHasAlias\": \"No\", \"primaryApplicantForenames\": \"JANE TEST\", \"probateDocumentsGenerated\": [], \"primaryApplicantIsApplying\": \"Yes\", \"boCaveatStopSendToBulkPrint\": \"Yes\", \"boCaveatStopEmailNotification\": \"No\", \"probateNotificationsGenerated\": [], \"boEmailGrantIssuedNotification\": \"No\", \"boEmailDocsReceivedNotification\": \"No\", \"boEmailDocsReceivedNotificationRequested\": \"No\"}";
@@ -49,7 +49,7 @@ public class QueryExecutor implements AutoCloseable {
             long duration = (endTime - startTime) / 1_000_000;
             LOGGER.info("Done. Execution time: {} ms", duration);
         } catch (SQLException ex) {
-            throw new ExecutorException(ex);
+            LOGGER.warn("SQL Exception thrown while executing statement.", ex);
         } finally {
             try {
                 if (statement != null) {
