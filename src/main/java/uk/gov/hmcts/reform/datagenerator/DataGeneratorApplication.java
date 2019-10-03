@@ -106,8 +106,8 @@ public class DataGeneratorApplication {
             LocalDateTime start = LocalDateTime.now();
             LocalDateTime end = start.plus(config.timeToRun);
             while (LocalDateTime.now().isBefore(end)) {
-                executor.execute("insert into case_data (created_date, last_modified, jurisdiction, case_type_id, state, locked_by_user_id, data, data_classification, reference, security_classification)\n" +
-                        "       values (?, ?, ?, ?, 'O', null, ?::jsonb, ?::jsonb, ?, 'Public');");
+                executor.execute("insert into case_data (created_date, last_modified, jurisdiction, case_type_id, state, version, data, data_classification, reference, security_classification)\n" +
+                        "       values (?, ?, ?, ?, 'O', 1, ?::jsonb, ?::jsonb, ?, 'Public');");
             }
         }
     }
